@@ -15,13 +15,10 @@ Text: <input type="text" name="Text" id="words">
 <input  type="button"  onclick= "convertToPhenotic()" value="Convert">
 </form>
 <br>
-<ol id="List">
+<ol>
   
 </ol>
-<table id="myTable">
-<tr>
-</tr>
-</table>
+
 <script>
 
 function getWord(c){
@@ -58,12 +55,12 @@ function convertToPhenotic(){
 var text = document.getElementById("words").value.replace('-','');
 
 var text2 = text.toUpperCase();
-var table = document.getElementById("myTable");
-var row = table.insertRow(0);
-for(var i = text.length - 1 ; i >= 0; i--){
-    var cell = row.insertCell(0);
-    cell.innerHTML = "[ " + text[i] + " = " + getWord(text2[i]) + " ] ";
-	}
+var list = document.querySelector("ol");
+for (var i = text.length - 1 ; i >= 0; i--) {
+  var listItem = document.createElement("li");
+  listItem.textContent =  text[i] + " = " + getWord(text2[i]) ;
+  list.appendChild(listItem);
+}
 }
 </script>
  
