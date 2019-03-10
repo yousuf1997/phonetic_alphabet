@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  td:hover{
+     background: #FFCF40;
+  }
+</style>
+</head>
+<body>
+<h1> Convertion To Phenotic </h1>
+<form id="form">
+Text: <input type="text" name="Text" id="words">
+<br>
+<input  type="button"  onclick= "convertToPhenotic()" value="Convert">
+</form>
+<br>
+<table id="myTable">
+<tr>
+</tr>
+</table>
+<script>
+
+function getWord(c){
+   // c = c.toUpperCase();
+    var words = new Map([
+   ['A', 'Apple'],
+   ['B', 'Brother'],
+   ['C', 'Cat'],
+   ['D','Dog'],
+   ['E', 'Echo'],
+   ['F', 'France'],
+   ['G', 'Gold'],
+   ['H','Hotel'],
+   ['I','India'],
+   ['J', 'John'],
+   ['K', 'Kilo'],
+   ['L', 'Lemon'],
+   ['M', 'Mother'],
+   ['N', 'November'],
+   ['O', 'Oscar'],
+   ['P', 'Pizza'],
+   ['Q','Question'],
+   ['R', 'Romeo'],
+   ['S', 'Sam'],
+   ['T', 'Tom'],
+   ['V', 'Victor'],
+   ['W' , 'William'],
+   ['X' , 'X-ray'],
+   ['Z' , 'Zebra']
+   ]);
+    return words.get(c);
+}
+function convertToPhenotic(){
+var text = document.getElementById("words").value.replace('-','');
+
+var text2 = text.toUpperCase();
+var table = document.getElementById("myTable");
+var row = table.insertRow(0);
+for(var i = text.length - 1 ; i >= 0; i--){
+    var cell = row.insertCell(0);
+    cell.innerHTML = "[ " + text[i] + " = " + getWord(text2[i]) + " ] ";
+	}
+}
+</script>
+ 
+</body>
+</html>
