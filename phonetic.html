@@ -56,7 +56,7 @@ var text = document.getElementById("words").value.replace('-','');
 
 var text2 = text.toUpperCase();
 var list = document.querySelector("ol");
-for (var i = text.length - 1 ; i >= 0; i--) {
+for (var i = 0 ; i < text.length ; i++) {
   var listItem = document.createElement("li");
   listItem.textContent =  text[i] + " = " + getWord(text2[i]) ;
   list.appendChild(listItem);
